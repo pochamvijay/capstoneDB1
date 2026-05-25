@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Employee Details</title>
+
+<style>
+
+body{
+    background:#f2f2f2;
+    font-family:Arial;
+}
+
+.card{
+
+    width:500px;
+    margin:auto;
+    margin-top:50px;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+
+}
+
+img{
+
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="{{employee.image}}">
+
+<h1>{{employee.fullname}}</h1>
+
+<h3>{{employee.designation}}</h3>
+
+<p>{{employee.phone}}</p>
+
+<p>{{employee.email}}</p>
+
+<p>{{employee.address}}</p>
+
+</div>
+
+</body>
+
+</html>

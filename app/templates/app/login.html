@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+
+<title>Login</title>
+
+<style>
+
+body{
+
+    margin:0;
+    padding:0;
+    font-family:Arial;
+    background:#f2f2f2;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+
+}
+
+.box{
+
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px gray;
+
+}
+
+h1{
+
+    text-align:center;
+
+}
+
+input{
+
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+
+}
+
+button{
+
+    width:100%;
+    padding:12px;
+    background:#007bff;
+    color:white;
+    border:none;
+    font-size:18px;
+
+}
+
+.register{
+
+    background:green;
+    margin-top:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Login</h1>
+
+<form method="post">
+
+{% csrf_token %}
+
+<input type="text" name="username" placeholder="Enter Username">
+
+<input type="password" name="password" placeholder="Enter Password">
+
+<button type="submit">
+
+Login
+
+</button>
+
+</form>
+
+<a href="/register/">
+
+<button class="register">
+
+Register
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>
