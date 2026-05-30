@@ -95,9 +95,17 @@ button{
 </p>
 {% endif %}
 
-<input type="text" name="username" placeholder="Enter Username">
+<input
+type="text"
+name="username"
+placeholder="Enter Username"
+required>
 
-<input type="password" name="password" placeholder="Enter Password">
+<input
+type="password"
+name="password"
+placeholder="Enter Password"
+required>
 
 <button type="submit">
     Login
@@ -106,9 +114,15 @@ button{
 </form>
 
 <a href="/register/">
-    <button class="register">
-        Register
-    </button>
+
+<button
+type="button"
+class="register">
+
+    Register
+
+</button>
+
 </a>
 
 </div>

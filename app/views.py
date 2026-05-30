@@ -13,22 +13,30 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(username=username,password=password)
+        if username == "" or password == "":
 
-        if user is not None:
-
-            auth_login(request,user)
-
-            return redirect('/home/')
+            error = "Please Fill All Fields"
 
         else:
 
-            error = "Wrong Username or Password"
+            user = authenticate(username=username,password=password)
+
+            if user is not None:
+
+                auth_login(request,user)
+
+                return redirect('/home/')
+
+            else:
+
+                error = "Wrong Username or Password"
 
     return render(request,'app/login.html',{'error':error})
 
 
 def register(request):
+
+    error = ""
 
     if request.method == "POST":
 
@@ -36,17 +44,27 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
 
-        User.objects.create_user(
+        if username == "" or email == "" or password == "":
 
-            username=username,
-            email=email,
-            password=password
+            error = "Please Fill All Fields"
 
-        )
+        elif User.objects.filter(username=username).exists():
 
-        return redirect('/')
+            error = "Username Already Exists"
 
-    return render(request,'app/register.html')
+        else:
+
+            User.objects.create_user(
+
+                username=username,
+                email=email,
+                password=password
+
+            )
+
+            return redirect('/')
+
+    return render(request,'app/register.html',{'error':error})
 
 
 def home(request):
