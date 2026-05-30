@@ -6,6 +6,8 @@ from app.models import Employee
 
 def login(request):
 
+    error = ""
+
     if request.method == "POST":
 
         username = request.POST['username']
@@ -19,7 +21,11 @@ def login(request):
 
             return redirect('/home/')
 
-    return render(request,'app/login.html')
+        else:
+
+            error = "Wrong Username or Password"
+
+    return render(request,'app/login.html',{'error':error})
 
 
 def register(request):
